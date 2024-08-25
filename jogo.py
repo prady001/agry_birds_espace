@@ -26,7 +26,7 @@ background_texture = pygame.transform.scale(background_texture, (WIDTH, HEIGHT))
 
 # Carregando e configurando a trilha sonora e efeitos sonoros
 pygame.mixer.music.load("satriani.mp3")
-pygame.mixer.music.set_volume(0.5)  # Volume da música (0.0 a 1.0)
+pygame.mixer.music.set_volume(0.01)  # Volume da música (0.0 a 1.0)
 pygame.mixer.music.play(-1)  # Toca a música em loop
 
 shot_sound = pygame.mixer.Sound("shot_sound.wav")
@@ -134,7 +134,7 @@ class Target:
             dy = body.y - self.y
             distance = math.hypot(dx, dy)
             if distance > 0:
-                force = body.mass / ((distance ** 2) + math.pow(10, -5))
+                force = body.mass / ((distance ** 2) + math.pow(10, 2.5))
                 angle = math.atan2(dy, dx)
                 self.vx += math.cos(angle) * force
                 self.vy += math.sin(angle) * force
